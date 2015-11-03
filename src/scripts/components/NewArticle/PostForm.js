@@ -1,23 +1,16 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import BlogActions from '../../actions/BlogActions';
+import BlogStore from '../../stores/BlogStore';
 
 const PostForm = React.createClass({
 
   getInitialState(){
-      content: ''
-  },
-
-  componentDidMount(){
-    BlogStore.addChangeListener(this._onSubmit)
-  },
-
-  componentWillUnmount(){
-    BlogStore.removeChangeListener(this._onSubmit)
+     return {content: ''}
   },
 
   _onSubmit(){
-    BlogStore.create(this.state.content)
+    BlogActions.create(this.state.content)
     this.setState({
       content: ''
     })
@@ -32,9 +25,9 @@ const PostForm = React.createClass({
   render(){
     return(
       <div>
-        <form onSubmit={this._onSubmit}>
+        <form>
           <textarea onChange={this._onChange} placeholder='content...' value={this.state.content}></textarea>
-          <button type='submit'>Submit</button>
+          <button type='submit' onSubmit={this._onSubmit}>Submit</button>
         </form>
       </div>
     )

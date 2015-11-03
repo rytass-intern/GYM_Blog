@@ -6,7 +6,7 @@ const PostItem = React.createClass({
   render(){
     return(
     	<div>
-    		<p>articles={this.prop.articles}</p>
+    		<p>{this.prop.articles}</p>
     	</div>
     )
   }

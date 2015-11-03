@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
   if (!req.body.content) {
-    res.status(401);
+    res.status(400);
     return res.json({
       message: 'Parameter Error'
     });
@@ -27,4 +27,5 @@ router.post('/', function (req, res) {
     id: articleId
   });
 });
+
 module.exports = router;

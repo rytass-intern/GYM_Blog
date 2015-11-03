@@ -8,7 +8,7 @@ import PostItem from './PostItem';
 const PostList = React.createClass({
 
 getInitialState(){
-	articles: BlogStore.getAll()
+	return {articles: BlogStore.getAll()}
 },
 
 _onChange(){

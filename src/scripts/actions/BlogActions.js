@@ -23,7 +23,6 @@ export default {
   create: function(content) {
     const data = qs.stringify({
       content: content,
-      time: new Date()
     });
 
     const req = new XMLHttpRequest();
@@ -32,7 +31,6 @@ export default {
       req.responseType = 'json';
       req.onreadystatechange = function () {
         if (req.readyState !== 4 || req.status !== 201) return;
-
         AppDispatcher.dispatch({
           id: req.response.id,
           content: content,
