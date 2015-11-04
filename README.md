@@ -1,2 +1,2 @@
 # GYM_Blog
-![alt tag](http://imgur.com/ZESGi9s)
+![image](https://github.com/chuntielin/GYM_Blog/raw/master/iamge/Flow1.jpg)
