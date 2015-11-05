@@ -1,34 +1,48 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
+
+// Flux
 import BlogActions from '../../actions/BlogActions';
 import BlogStore from '../../stores/BlogStore';
 
 const PostForm = React.createClass({
 
   getInitialState(){
-     return {content: ''}
+    return{
+      content:''
+    }
   },
 
-  _onSubmit(){
-    BlogActions.create(this.state.content)
+  componentDidMount(){
+    BlogStore.addChangeListener(this.articleUpdate);
+  },
+
+  componentWillUnmount(){
+    BlogStore.removeChangeListener(this.articleUpdate);
+  },
+
+  articleUpdate(){
     this.setState({
-      content: ''
-    })
+      content:''
+    });
   },
-
   _onChange(e){
     this.setState({
       content: e.target.value
-    })
+    });
+  },
+  _onSubmit(){
+    BlogActions.create(this.state.content);
+      this.setState({
+        content:''
+      });
   },
 
   render(){
     return(
       <div>
-        <form>
-          <textarea onChange={this._onChange} placeholder='content...' value={this.state.content}></textarea>
-          <button type='submit' onSubmit={this._onSubmit}>Submit</button>
-        </form>
+        <input type='text' onChange={this._onChange} value={this.state.content} />
+        <button type='button' onClick={this._onSubmit}> Submit! </button>
       </div>
     )
   }

@@ -1,15 +1,11 @@
-import React from 'react';
+import React from 'react'; 
 
-// Components
-
-const PostItem = React.createClass({
-  render(){
-    return(
-    	<div>
-    		<p>{this.prop.articles}</p>
-    	</div>
-    )
-  }
-});
+	const PostItem = React.createClass({ 
+		render(){ 
+			return( <p> {this.props.item.content} </p> 
+			) 
+		} 
+	}); 
 
 module.exports=PostItem;
+

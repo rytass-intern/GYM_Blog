@@ -28,7 +28,7 @@ componentWillUnmount(){
     return(
     	<div>
     		{this.state.articles.map((item) => {
-    			return <PostItem articles={this.state.articles} />
+    			return <PostItem item={item} />
 			})}
   		</div>
     )
