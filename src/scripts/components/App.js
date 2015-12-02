@@ -5,6 +5,8 @@ import {Link} from 'react-router-component';
 
 // Views
 import HomePage from './HomePage/HomePage.js';
+import SideMenu from './HomePage/SideMenu.js';
+import Header from './HomePage/Header.js';
 import NewArticle from './NewArticle/NewArticle.js';
 
 const styles = {
@@ -19,7 +21,11 @@ const App = React.createClass({
   render() {
     return (
       <div id='site' style={styles.wrap}>
-        <NewArticle />
+        <SideMenu />
+        <div>
+          <Header />
+          <NewArticle />
+        </div>
       </div>
     )
   }
