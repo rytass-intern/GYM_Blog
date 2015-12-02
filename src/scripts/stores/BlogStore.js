@@ -41,14 +41,18 @@ AppDispatcher.register((payload) => {
     case BlogConstants.ARTICLE_CREATE:
           _articles.push({
             id: payload.id,
-            content: payload.content
+            title: payload.title,
+            content: payload.content,
+            event: payload.event,
+            weight: payload.weight,
+            reps: payload.reps
           });
 
           BlogStore.emitChange();
           break;
 
   return true;
-}
+  }
 });
 
 export default BlogStore;

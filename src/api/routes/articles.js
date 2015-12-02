@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  if (!req.body.content) {
+  if (!req.body.title && !req.body.content && !req.body.weight && !req.body.reps) {
     res.status(400);
     return res.json({
       message: 'Parameter Error'
@@ -19,7 +19,11 @@ router.post('/', function (req, res) {
 
   articles.push({
     id: articleId,
-    content: req.body.content
+    title: req.body.title,
+    content: req.body.content,
+    event: req.body.event,
+    weight: req.body.weight,
+    reps: req.body.reps
   });
 
   res.status(201);

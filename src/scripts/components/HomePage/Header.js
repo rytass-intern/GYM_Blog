@@ -10,7 +10,6 @@ const styles = {
   wrap: {
     flex: 1,
     height: '100%',
-    // justifyContent: 'center'
   }
 };
 
@@ -28,11 +27,5 @@ const Header = React.createClass({
     )
   }
 });
-
-// React.render((
-//   <Router>
-//       <Route path="NewArticle" component={NewArticle} />
-//   </Router>
-// ));
 
 module.exports = Header ;

@@ -20,9 +20,13 @@ export default {
     req.send();
   },
 
-  create: function(content) {
+  create: function(obj) {
     const data = qs.stringify({
-      content: content,
+      title: obj.title,
+      content: obj.content,
+      event: obj.event,
+      weight: obj.weight,
+      reps: obj.reps
     });
 
     const req = new XMLHttpRequest();
@@ -33,7 +37,11 @@ export default {
         if (req.readyState !== 4 || req.status !== 201) return;
         AppDispatcher.dispatch({
           id: req.response.id,
-          content: content,
+          title: obj.title,
+          content: obj.content,
+          event: obj.event,
+          weight: obj.weight,
+          reps: obj.reps,
           action: BLogConstants.ARTICLE_CREATE
         });
       };

@@ -11,7 +11,6 @@ const styles = {
     alignItems: 'center',
     height: '100%',
     width: '100%'
-    // justifyContent: 'center'
   }
 };
 
