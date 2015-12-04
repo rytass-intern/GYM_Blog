@@ -18,8 +18,8 @@ const HomePage = React.createClass({
   render() {
     return (
         <div>
-          <SideMenu />
-          <Header />
+            <SideMenu />
+            <Header />
         </div>
     )
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-component';
+import {Locations, Location, NotFound} from 'react-router-component';
 
 // Components
 
@@ -8,10 +8,15 @@ import HomePage from './HomePage/HomePage.js';
 import SideMenu from './HomePage/SideMenu.js';
 import Header from './HomePage/Header.js';
 import NewArticle from './NewArticle/NewArticle.js';
+import EditArticle from './EditArticle/EditArticle.js';
 
 const styles = {
   wrap: {
     display: 'flex',
+    height: '100%',
+    width: '100%'
+  },
+  main:{
     height: '100%',
     width: '100%'
   }
@@ -22,9 +27,13 @@ const App = React.createClass({
     return (
       <div id='site' style={styles.wrap}>
         <SideMenu />
-        <div>
+        <div id='header&location' style={styles.main}>
           <Header />
-          <NewArticle />
+          <Locations path={this.props.path}>
+              <Location handler={NewArticle} path='/' />
+              <Location handler={EditArticle} path='/editarticle' />
+              <NotFound handler={NewArticle} />
+          </Locations>
         </div>
       </div>
     )
