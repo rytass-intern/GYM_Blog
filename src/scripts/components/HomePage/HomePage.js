@@ -1,8 +1,12 @@
 import React from 'react';
+import { Router, Route, Link } from 'react-router';
+
+// Flux
+import BlogActions from '../../actions/BlogActions';
+import BlogStore from '../../stores/BlogStore';
 
 // Components
-import SideMenu from './SideMenu.js';
-import Header from './Header.js';
+
 import Articles from './Articles.js';
 
 const styles = {
@@ -15,11 +19,33 @@ const styles = {
 };
 
 const HomePage = React.createClass({
+  getInitialState(){
+    return{
+      articles: BlogStore.getAll()
+    }
+  },
+
+  _onChange(){
+    this.setState({
+      articles: BlogStore.getAll()
+    })
+  },
+
+  componentDidMount(){
+    BlogActions.fetch()
+    BlogStore.addChangeListener(this._onChange)
+  },
+
+  componentWillUnmount(){
+    BlogStore.removeChangeListener(this._onChange)
+  },
+
   render() {
     return (
         <div>
-            <SideMenu />
-            <Header />
+          {this.state.articles.map((item) => {
+            return <Articles item={item} />
+          })}
         </div>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-component';
 
 const styles = {
   sideBar: {
@@ -43,7 +44,9 @@ const SideMenu = React.createClass({
             fontSize:'1em',
             backgroundColor: '#666666',
             border: 'none'
-          }}> Blog </button>
+          }}>
+            <Link href='/'>Blog</Link>
+          </button>
           
           <button type='button' style={{
             color:'#CCDDFF',

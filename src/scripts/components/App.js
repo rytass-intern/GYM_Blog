@@ -5,8 +5,8 @@ import {Locations, Location, NotFound} from 'react-router-component';
 
 // Views
 import HomePage from './HomePage/HomePage.js';
-import SideMenu from './HomePage/SideMenu.js';
-import Header from './HomePage/Header.js';
+import SideMenu from './SideMenu.js';
+import Header from './Header.js';
 import NewArticle from './NewArticle/NewArticle.js';
 import EditArticle from './EditArticle/EditArticle.js';
 
@@ -30,9 +30,10 @@ const App = React.createClass({
         <div id='header&location' style={styles.main}>
           <Header />
           <Locations path={this.props.path}>
-              <Location handler={NewArticle} path='/' />
+              <Location handler={HomePage} path='/' />
+              <Location handler={NewArticle} path='/newarticle' />
               <Location handler={EditArticle} path='/editarticle' />
-              <NotFound handler={NewArticle} />
+              <NotFound handler={HomePage} />
           </Locations>
         </div>
       </div>

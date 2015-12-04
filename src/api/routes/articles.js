@@ -1,7 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var articles = [];
+var articles = [
+  { id: 1,
+    title: 'Day 1',
+    content: '好累唷',
+    event: '啞鈴',
+    weight: '15',
+    reps: '4'},
+  { id:2,
+    title: 'Day 2',
+    content: '好辛苦唷',
+    event: '仰臥起坐',
+    weight: '20',
+    reps: '5'}  
+  ];
 
 router.get('/', function (req, res) {
   res.json(articles);

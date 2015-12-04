@@ -4,7 +4,6 @@ import {Link} from 'react-router-component';
 // Components
 
 // Views
-import NewArticle from '../NewArticle/NewArticle.js'
 
 const styles = {
   wrap: {
@@ -35,7 +34,7 @@ const Header = React.createClass({
           <button type='button' style={{
             color:'#FFFFFF',
             fontSize:'1em',
-            backgroundColor: '#DDDDDD',
+            backgroundColor:'#DDDDDD',
             border: 'none',
             paddingRight:'15px'}}>
             <Link href='/editarticle'>Edit Article</Link>
