@@ -38,26 +38,16 @@ const SideMenu = React.createClass({
         <p style={styles.webFont}> WEBSITE </p>
         
         <div style={styles.webButton}>
-          
-          <button type='button' style={{
-            color:'#CCDDFF',
-            fontSize:'1em',
-            backgroundColor: '#666666',
-            border: 'none'
-          }}>
-            <Link href='/'>Blog</Link>
+          <button type='button' style={{backgroundColor:'#666666', border:'none'}}>            
+            <Link href='/' style={{color:'#708090', fontSize:'2em', backgroundColor:'#666666', border:'none', textDecoration:'none'}}>Blog</Link>
           </button>
           
-          <button type='button' style={{
-            color:'#CCDDFF',
-            fontSize:'1em',
-            backgroundColor: '#666666',
-            border: 'none'
-          }}> About </button>
+          <button type='button' style={{backgroundColor:'#666666', border:'none'}}>
+            <Link href='/about' style={{color:'#708090', fontSize:'2em', backgroundColor:'#666666', border:'none', textDecoration:'none'}}>About</Link>
+          </button>
         </div>
         
         <div>
-
           <button type='button' style={styles.SideBarArticleButton}> RECENTLY <br/> POST </button>
             <ul>
               <li> first post </li>

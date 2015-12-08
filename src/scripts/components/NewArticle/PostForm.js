@@ -1,9 +1,15 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
 
 // Flux
 import BlogActions from '../../actions/BlogActions';
 import BlogStore from '../../stores/BlogStore';
+
+const styles = {
+  input: {
+    padding:'10px',
+    marginLeft:'50px'
+  }
+};
 
 const PostForm = React.createClass({
 
@@ -87,20 +93,37 @@ const PostForm = React.createClass({
 
   render(){
     return(
-      <div>
-        <input type='text' placeholder='Title' onChange={this._onTitleChange} value={this.state.title} />
-        <input type='text' placeholder='Content' onChange={this._onContentChange} value={this.state.content} />
-        
-        <select onChange={this._onEventChange} value={this.state.event}>
-           <option value=" "></option>
-　         <option value="仰臥起坐">仰臥起坐</option>
-　         <option value="伏地挺身">伏地挺身</option>
-           <option value="啞鈴">啞鈴</option>
-        </select>
-        
-        <input type='text' placeholder='Weight' onChange={this._onWeightChange} value={this.state.weight} />
-        <input type='text' placeholder='Reps' onChange={this._onRepsChange} value={this.state.reps} />
-        <button type='button' onClick={this._onSubmit}> Submit </button>
+      <div id='inputs' style={styles.input}>
+        <div>
+          <p style={{fontSize:'1.8em', color:'#708090'}}> Title </p>
+          <input type='text' onChange={this._onTitleChange} value={this.state.title} style={{width:'800px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+        </div>
+
+        <div>
+          <p style={{fontSize:'1.8em', color:'#708090'}}> Content </p>
+          <input type='text' onChange={this._onContentChange} value={this.state.content} style={{width:'800px', height:'300px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+        </div>
+
+        <div>
+          <p style={{fontSize:'1.8em', color:'#708090'}}> Event </p>
+          <select onChange={this._onEventChange} value={this.state.event} style={{width:'800px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}}>
+  　         <option value="仰臥起坐">仰臥起坐</option>
+  　         <option value="伏地挺身">伏地挺身</option>
+             <option value="啞鈴">啞鈴</option>
+          </select>
+        </div>
+
+        <div>
+          <p style={{fontSize:'1.8em', color:'#708090'}}> Weight </p>
+          <input type='text' onChange={this._onWeightChange} value={this.state.weight} style={{width:'200px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+        </div>
+
+        <div>
+          <p style={{fontSize:'1.8em', color:'#708090'}}> Reps </p>
+          <input type='text'  onChange={this._onRepsChange} value={this.state.reps} style={{width:'200px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+        </div>
+
+        <button type='button' onClick={this._onSubmit} style={{marginTop:'30px', backgroundColor:'#708090', color:'#FFFFFF', border:'none', borderRadius:'3px', fontSize:'1.2em'}} > Submit </button>
       </div>
     )
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
 import BlogActions from '../../actions/BlogActions';
 
 // Components
@@ -11,7 +10,6 @@ const NewArticle = React.createClass({
     return(
       <div>
         <PostForm />
-        <PostList />
       </div>
     )
   }

@@ -38,7 +38,6 @@ router.post('/', function (req, res) {
     weight: req.body.weight,
     reps: req.body.reps
   });
-
   res.status(201);
   res.json({
     id: articleId

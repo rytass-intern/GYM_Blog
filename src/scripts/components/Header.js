@@ -7,8 +7,8 @@ import {Link} from 'react-router-component';
 
 const styles = {
   wrap: {
-    height: '15%',
-    backgroundColor: '#DDDDDD'
+    height:'15%',
+    backgroundColor:'#DDDDDD'
   },
   headerButton:{
     textAlign:'right'
@@ -22,36 +22,18 @@ const Header = React.createClass({
       <div id='Header' style={styles.wrap}>
         <div id='headerbutton' style={styles.headerButton}>
 
-          <button type='button' style={{
-            color:'#FFFFFF',
-            fontSize:'1em',
-            backgroundColor: '#DDDDDD',
-            border: 'none',
-            paddingRight:'15px'}}>
-            <Link href='/newarticle'>New Article</Link>
+          <button type='button' style={{backgroundColor:'#DDDDDD', border:'none', paddingRight:'15px'}}>
+            <Link href='/newarticle' style={{color:'#778899', fontSize:'1.5em', textDecoration:'none'}}>New Article</Link>
           </button>
 
-          <button type='button' style={{
-            color:'#FFFFFF',
-            fontSize:'1em',
-            backgroundColor:'#DDDDDD',
-            border: 'none',
-            paddingRight:'15px'}}>
-            <Link href='/editarticle'>Edit Article</Link>
+          <button type='button' style={{backgroundColor:'#DDDDDD', border: 'none', paddingRight:'15px'}}>
+            <Link href='/editarticle' style={{color:'#778899', fontSize:'1.5em', textDecoration:'none'}}>Edit Article</Link>
           </button>
 
-          <button type='button' style={{
-            color:'#FFFFFF',
-            fontSize:'1em',
-            backgroundColor: '#5599FF',
-            border: 'none'}}> Sign In </button>
+          <button type='button' style={{color:'#FFFFFF', fontSize:'1em', backgroundColor:'#778899', border:'none'}}> Sign In </button>
 
         </div>
-        <p style={{
-          paddingLeft:'15px',
-          fontSize:'2em',
-          fontFamily:'courier',
-          color:'#696969'}}> ALL ARTICLES </p>
+        <p style={{paddingLeft:'15px', fontSize:'2em', fontFamily:'courier', color:'#A9A9A9'}}> ALL ARTICLES </p>
 
       </div>
     )
