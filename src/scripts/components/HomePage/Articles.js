@@ -1,18 +1,16 @@
 import React from 'react'; 
+import {Link} from 'react-router-component';
 
-	const Articles = React.createClass({ 
-		render(){ 
-			return( 
-				<div>
-					<h1> {this.props.item.id} </h1>
-					<h2> Title:{this.props.item.title} </h2>
-					<p> Content:{this.props.item.content} </p>
-					<p> Event:{this.props.item.event} </p>
-					<p> Weight:{this.props.item.weight} </p> 
-					<p> Reps:{this.props.item.reps} </p> 
-				</div>
-			) 
-		} 
-	}); 
+const Articles = React.createClass({ 
+  render(){ 
+	return( 
+ 	  <div>
+		<Link href={this.props.item.id}>				
+		  <h2> {this.props.item.title} </h2>
+		</Link>
+	  </div>
+	  ) 
+	} 
+}); 
 
 module.exports=Articles;

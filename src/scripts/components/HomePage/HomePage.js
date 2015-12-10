@@ -1,12 +1,11 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
+import {Link} from 'react-router-component';
 
 // Flux
 import BlogActions from '../../actions/BlogActions';
 import BlogStore from '../../stores/BlogStore';
 
 // Components
-
 import Articles from './Articles.js';
 
 const styles = {
