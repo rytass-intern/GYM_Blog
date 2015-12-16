@@ -1,6 +1,6 @@
 import AppDispatcher from '../dispatcher/AppDispatcher.js';
 import BLogConstants from '../constants/BLogConstants.js';
-import BloghStore from '../stores/BlogStore.js';
+import BlogStore from '../stores/BlogStore.js';
 import qs from 'querystring';
 
 export default {
@@ -37,6 +37,7 @@ export default {
         if (req.readyState !== 4 || req.status !== 201) return;
         AppDispatcher.dispatch({
           id: req.response.id,
+          time: req.response.time,
           title: obj.title,
           content: obj.content,
           event: obj.event,

@@ -8,7 +8,7 @@ var articles = [
     event: '啞鈴',
     weight: '15',
     reps: '4'},
-  { id:2,
+  { id: 2,
     title: 'Day 2',
     content: '好辛苦唷',
     event: '仰臥起坐',
@@ -28,10 +28,12 @@ router.post('/', function (req, res) {
     });
   }
 
-  var articleId = Math.random();
+  var articleId = articles.length + 1;
+  var createTime = new Date();
 
   articles.push({
     id: articleId,
+    time: createTime,
     title: req.body.title,
     content: req.body.content,
     event: req.body.event,

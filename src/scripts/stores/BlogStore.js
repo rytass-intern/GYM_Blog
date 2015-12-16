@@ -25,6 +25,10 @@ const BlogStore = assign({}, EventEmitter.prototype, {
 
   getAll() {
     return _articles;
+  },
+
+  getSpecificArticle(id) {
+    return _articles[id-1];
   }
 });
 
@@ -41,6 +45,7 @@ AppDispatcher.register((payload) => {
     case BlogConstants.ARTICLE_CREATE:
           _articles.push({
             id: payload.id,
+            time: payload.time,
             title: payload.title,
             content: payload.content,
             event: payload.event,

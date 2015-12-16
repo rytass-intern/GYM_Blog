@@ -10,7 +10,6 @@ import SideMenu from './SideMenu.js';
 import Header from './Header.js';
 
 // Views
-import Main from './Main.js';
 import HomePage from './HomePage/HomePage.js';
 import SignIn from './SignIn/SignIn.js';
 import Articles from './HomePage/Articles.js';
@@ -31,7 +30,7 @@ const styles = {
   }
 };
 
-const App = React.createClass({
+const Main = React.createClass({
 
   getInitialState(){
     return{
@@ -42,13 +41,22 @@ const App = React.createClass({
   render() {
     var id = this.state.articles.id
     return (
-      <Locations path={this.props.path} style={styles.main}>
-        <Location handler={Main} path='(/*)' />
-        <Location handler={SignIn} path="/signin" />
-        <NotFound handler={Main} />
-      </Locations>
+      <div id='site' style={styles.wrap}>
+        <SideMenu />
+        <div id='header&location' style={styles.main}>
+          <Header />
+          <Locations contextual path={this.props.path}>
+              <Location handler={HomePage} path='/' />
+              <Location handler={DetailArticles} path="/articles/:articleId" />
+              <Location handler={About} path='/about' />
+              <Location handler={NewArticle} path='/newarticle' />
+              <Location handler={EditArticle} path='/editarticle/:articleId' />
+              <NotFound handler={HomePage} />
+          </Locations>
+        </div>
+      </div>      
     )
   }
 });
 
-module.exports = App;
+module.exports = Main;

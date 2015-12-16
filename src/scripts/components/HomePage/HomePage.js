@@ -18,6 +18,7 @@ const styles = {
 };
 
 const HomePage = React.createClass({
+  
   getInitialState(){
     return{
       articles: BlogStore.getAll()

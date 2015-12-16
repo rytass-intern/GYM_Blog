@@ -9,7 +9,6 @@ import React from 'react';
 					<p> Event:{this.props.item.event} </p>
 					<p> Weight:{this.props.item.weight} </p> 
 					<p> Reps:{this.props.item.reps} </p> 
- 
 				</div>
 			) 
 		} 
