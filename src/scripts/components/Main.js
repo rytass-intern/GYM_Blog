@@ -17,6 +17,8 @@ import DetailArticles from './HomePage/DetailArticles.js';
 import NewArticle from './NewArticle/NewArticle.js';
 import EditArticle from './EditArticle/EditArticle.js';
 import About from './About/About.js';
+import EditAbout from './About/EditAbout.js';
+
 
 const styles = {
   wrap: {
@@ -49,6 +51,7 @@ const Main = React.createClass({
               <Location handler={HomePage} path='/' />
               <Location handler={DetailArticles} path="/articles/:articleId" />
               <Location handler={About} path='/about' />
+              <Location handler={EditAbout} path='/editabout' />
               <Location handler={NewArticle} path='/newarticle' />
               <Location handler={EditArticle} path='/editarticle/:articleId' />
               <NotFound handler={HomePage} />

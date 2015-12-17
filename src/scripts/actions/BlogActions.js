@@ -1,5 +1,5 @@
 import AppDispatcher from '../dispatcher/AppDispatcher.js';
-import BLogConstants from '../constants/BLogConstants.js';
+import BlogConstants from '../constants/BlogConstants.js';
 import BlogStore from '../stores/BlogStore.js';
 import qs from 'querystring';
 
@@ -14,7 +14,7 @@ export default {
 
       AppDispatcher.dispatch({
         articles: req.response,
-        action: BLogConstants.ARTICLE_FETCH
+        action: BlogConstants.ARTICLE_FETCH
       });
     };
     req.send();
@@ -43,9 +43,31 @@ export default {
           event: obj.event,
           weight: obj.weight,
           reps: obj.reps,
-          action: BLogConstants.ARTICLE_CREATE
+          action: BlogConstants.ARTICLE_CREATE
         });
       };
       req.send(data);
-    }
+    },
+
+  edit: function(id,obj) {
+    AppDispatcher.dispatch({
+      id: id,
+      title: obj.title,
+      content: obj.content,
+      event: obj.event,
+      weight: obj.weight,
+      reps: obj.reps,
+      action: BlogConstants.ARTICLE_EDIT
+    });
+  },
+
+  editAbout: function(obj) {
+    AppDispatcher.dispatch({
+      name: obj.name,
+      age: obj.age,
+      weight: obj.weight,
+      height: obj.height,
+      action: BlogConstants.ARTICLE_EDITABOUT
+    });
+  }
 }

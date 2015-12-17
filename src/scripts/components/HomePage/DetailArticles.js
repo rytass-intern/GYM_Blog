@@ -13,8 +13,6 @@ import BlogStore from '../../stores/BlogStore';
 			}
 		},
 
-
-
 		render(){ 
 			return( 
 				<div>

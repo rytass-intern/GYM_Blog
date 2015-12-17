@@ -26,10 +26,6 @@ const Header = React.createClass({
             <Link href='/newarticle' style={{color:'#778899', fontSize:'1.5em', textDecoration:'none'}}>New Article</Link>
           </button>
 
-          <button type='button' style={{backgroundColor:'#DDDDDD', border: 'none', paddingRight:'15px'}}>
-            <Link href='/editarticle' style={{color:'#778899', fontSize:'1.5em', textDecoration:'none'}}>Edit Article</Link>
-          </button>
-
           <button type='button' style={{backgroundColor:'#778899', border:'none'}}>
             <Link href='/signin' style={{color:'#FFFFFF', fontSize:'1.5em', textDecoration:'none'}}> Sign In </Link>
           </button>

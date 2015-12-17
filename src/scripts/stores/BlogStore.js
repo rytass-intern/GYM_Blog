@@ -8,6 +8,7 @@ const localStorage = localStorage || {};
 
 const CHANGE_EVENT = 'change';
 
+let _profiles = [];
 let _articles = [];
 
 const BlogStore = assign({}, EventEmitter.prototype, {
@@ -29,6 +30,11 @@ const BlogStore = assign({}, EventEmitter.prototype, {
 
   getSpecificArticle(id) {
     return _articles[id-1];
+  },
+
+  getProfile(){
+    return _profiles;
+    console.log(_profiles);
   }
 });
 
@@ -53,6 +59,29 @@ AppDispatcher.register((payload) => {
             reps: payload.reps
           });
 
+          BlogStore.emitChange();
+          break;
+
+      case BlogConstants.ARTICLE_EDIT:
+          _articles[payload.id-1] = {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            event: payload.event,
+            weight: payload.weight,
+            reps: payload.reps
+          };
+          
+          BlogStore.emitChange();
+          break;
+
+      case BlogConstants.ARTICLE_EDITABOUT:
+          _profiles[0] = {
+            name: payload.name,
+            age: payload.age,
+            weight: payload.weight,
+            height: payload.height
+          };
           BlogStore.emitChange();
           break;
 

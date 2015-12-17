@@ -124,8 +124,8 @@ const PostForm = React.createClass({
           <input type='text'  onChange={this._onRepsChange} value={this.state.reps} style={{width:'200px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
         </div>
 
-        <button type='button' onClick={this._onSubmit} style={{marginTop:'30px', backgroundColor:'#708090', color:'#FFFFFF', border:'none', borderRadius:'3px', fontSize:'1.2em'}}>
-          <Link href='/'> Submit </Link>
+        <button type='button' onClick={this._onSubmit} style={{marginTop:'30px', backgroundColor:'#708090', borderRadius:'10px'}}>
+          <Link href='/' style={{color:'#FFFFFF', textDecoration:'none', fontSize:'2em'}}> Submit </Link>
          </button>
       </div>
     )

@@ -1,18 +1,28 @@
 import React from 'react';
+import {Link} from 'react-router-component';
 
 // Flux
 import BlogStore from '../../stores/BlogStore';
+import BlogActions from '../../actions/BlogActions';
+
+const styles = {
+  input: {
+    padding:'10px',
+    marginLeft:'50px'
+  }
+};
 
 const EditArticle = React.createClass({
 
 	getInitialState(){
+		var editArticle = BlogStore.getSpecificArticle(this.props.articleId);
+
 		return{	
-			editArticle: BlogStore.getSpecificArticle(this.props.articleId),
-			title: this.state.editArticle.title,
-			content: this.state.editArticle.content,
-			event: this.state.editArticle.event,
-      		weight: this.state.editArticle.weight,
-      		reps: this.state.editArticle.reps
+			title: editArticle.title,
+			content: editArticle.content,
+			event: editArticle.event,
+      		weight: editArticle.weight,
+      		reps: editArticle.reps
 		}
 	},	
 
@@ -54,7 +64,7 @@ const EditArticle = React.createClass({
       		weight: this.state.weight,
       		reps: this.state.reps
     	}
-    	BlogActions.create(obj);
+    	BlogActions.edit(this.props.articleId,obj);
   	},
 
   render(){
@@ -67,7 +77,7 @@ const EditArticle = React.createClass({
 
         <div>
           <p style={{fontSize:'1.8em', color:'#708090'}}> Content </p>
-          <input type='text' onChange={this._onContentChange} value={this.state.content} style={{width:'800px', height:'300px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+          <input type='text' onChange={this._onContentChange} value={this.state.content} style={{width:'800px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
         </div>
 
         <div>
@@ -81,16 +91,16 @@ const EditArticle = React.createClass({
 
         <div>
           <p style={{fontSize:'1.8em', color:'#708090'}}> Weight </p>
-          <input type='text' onChange={this._onWeightChange} value={this.state.weight} style={{width:'200px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+          <input type='text' onChange={this._onWeightChange} value={this.state.weight} style={{width:'800px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
         </div>
 
         <div>
           <p style={{fontSize:'1.8em', color:'#708090'}}> Reps </p>
-          <input type='text'  onChange={this._onRepsChange} value={this.state.reps} style={{width:'200px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
+          <input type='text' onChange={this._onRepsChange} value={this.state.reps} style={{width:'800px', height:'40px', fontSize:'1.5em', borderRadius:'5px', border:'1px solid #708090', backgroundColor:'#F8F8FF'}} />
         </div>
 
-        <button type='button' onClick={this._onSubmit} style={{marginTop:'30px', backgroundColor:'#708090', color:'#FFFFFF', border:'none', borderRadius:'3px', fontSize:'1.2em'}}>
-          <Link href='/'> Submit </Link>
+        <button type='button' onClick={this._onSubmit} style={{marginTop:'30px', backgroundColor:'#708090', borderRadius:'10px'}}>
+          <Link href={"/articles/"+this.props.articleId} style={{color:'#FFFFFF', textDecoration:'none', fontSize:'2em'}}> Submit </Link>
          </button>
       </div>
     )

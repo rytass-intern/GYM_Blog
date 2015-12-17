@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
 
 var articles = [
   { id: 1,
@@ -45,5 +46,26 @@ router.post('/', function (req, res) {
     id: articleId
   });
 });
+
+router.patch('/:articleId', function(req, res){
+  if(req.params.articleId){
+    var id = parseInt(req.params.articleId)
+ 
+    articles[id] = {
+      title: req.body.title,
+      content: req.body.content,
+      event: req.body.event,
+      weight: req.body.weight,
+      reps: req.body.reps
+    };
+    res.status(204);
+    res.end();
+  }else{
+    res.status(404);
+    res.end();
+  }
+});
+
+
 
 module.exports = router;
